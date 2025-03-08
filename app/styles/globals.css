@@ -126,3 +126,11 @@ a {
   background-clip: text;
   text-fill-color: transparent;
 }
+/* 建築法規アドバイザー用カスタムスタイル */
+:root {
+  --primary-color: #3b82f6;
+  --primary-dark: #1d4ed8;
+  /* 他のスタイル変数も同様に追加 */
+}
+
+/* 以下、私が提供した他のCSSスタイルを追加 */
