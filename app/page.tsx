@@ -40,12 +40,13 @@ export default function Home() {
       const data = await response.json();
       
       // 回答を表示（Difyのレスポンス形式に合わせる）
-      setAnswer(data.answer);
+      setAnswer(data.answer || 'APIからの回答を取得できませんでした。');
       setShowAnswer(true);
       
     } catch (error) {
       console.error('エラー:', error);
-      alert('すみません、エラーが発生しました。もう一度お試しください。');
+      setAnswer('申し訳ありません、エラーが発生しました。もう一度お試しください。');
+      setShowAnswer(true);
     } finally {
       setIsLoading(false);
     }
@@ -53,28 +54,28 @@ export default function Home() {
   
   return (
     <>
-     {/* ナビゲーション */}
-<nav className="nav">
-  <div className="container nav-inner">
-    <a href="#" className="logo">
-      <i className="fas fa-building"></i>
-      ナカノフドー 建築法規アドバイザー
-    </a>
-    <div className="nav-links">
-      <a href="#" className="nav-link">ホーム</a>
-      <a href="#" className="nav-link">法規検索</a>
-      <a href="#" className="nav-link">お問い合わせ</a>
-    </div>
-  </div>
-</nav>
-
-{/* ヘッダー */}
-<header className="header">
-  <div className="container">
-    <h1 className="title animate-float">ナカノフドー<br/>建築法規アドバイザー</h1>
-    <p className="subtitle">中野不動産ならではの建築に関する法規や規制についての質問にお答えします。専門知識を持つAIが24時間対応いたします。</p>
-  </div>
-</header>
+      {/* ナビゲーション */}
+      <nav className="nav">
+        <div className="container nav-inner">
+          <a href="#" className="logo">
+            <i className="fas fa-building"></i>
+            ナカノフドー 建築法規アドバイザー
+          </a>
+          <div className="nav-links">
+            <a href="#" className="nav-link">ホーム</a>
+            <a href="#" className="nav-link">法規検索</a>
+            <a href="#" className="nav-link">お問い合わせ</a>
+          </div>
+        </div>
+      </nav>
+      
+      {/* ヘッダー */}
+      <header className="header">
+        <div className="container">
+          <h1 className="title animate-float">ナカノフドー<br/>建築法規アドバイザー</h1>
+          <p className="subtitle">中野不動産ならではの建築に関する法規や規制についての質問にお答えします。専門知識を持つAIが24時間対応いたします。</p>
+        </div>
+      </header>
       
       {/* メインコンテンツ */}
       <main className="container">
@@ -83,7 +84,7 @@ export default function Home() {
           <div className="column">
             <div className="card">
               <h2 className="card-title"><i className="fas fa-info-circle"></i> サービスについて</h2>
-              <p>建築法規アドバイザーは、<span className="squiggle">建築基準法</span>や関連規制についての質問に答えるAIサービスです。設計、施工、リフォームなどの場面で役立つ情報を提供します。</p>
+              <p>ナカノフドー建築法規アドバイザーは、<span className="squiggle">建築基準法</span>や関連規制についての質問に答えるAIサービスです。設計、施工、リフォームなどの場面で役立つ情報を提供します。</p>
               
               <div className="features">
                 <div className="feature-item">
@@ -124,21 +125,21 @@ export default function Home() {
             <div className="card">
               <h2 className="form-title">ご質問はこちら</h2>
               <div className="question-form">
-               {/* 国選択 - 日本とシンガポールのみ */}
-<div className="select-container">
-  <label htmlFor="country-select">どの国の法規について調べますか？</label>
-  <select 
-    id="country-select" 
-    className="styled-select"
-    value={selectedCountry}
-    onChange={(e) => setSelectedCountry(e.target.value)}
-  >
-    <option value="日本">日本</option>
-    <option value="シンガポール">シンガポール</option>
-  </select>
-</div>
+                {/* 国選択 - 日本とシンガポールのみ */}
+                <div className="select-container">
+                  <label htmlFor="country-select">どの国の法規について調べますか？</label>
+                  <select 
+                    id="country-select" 
+                    className="styled-select"
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                  >
+                    <option value="日本">日本</option>
+                    <option value="シンガポール">シンガポール</option>
+                  </select>
+                </div>
                 
-                {/* 追加：言語選択 */}
+                {/* 言語選択 */}
                 <div className="select-container">
                   <label htmlFor="language-select">どの言語で回答を受け取りますか？</label>
                   <select 
@@ -230,37 +231,14 @@ export default function Home() {
         </div>
       </main>
       
- {/* フッター */}
-<footer className="footer">
-  <div className="container">
-    <div className="footer-content">
-      <div className="footer-section">
-        <h3 className="footer-title">ナカノフドー 建築法規アドバイザー</h3>
-        <p>中野不動産が提供する、建築に関する法規制の疑問を解決するAIアシスタント。</p>
-      </div>
-      
-      <div className="footer-section">
-        <h3 className="footer-title">リンク</h3>
-        <ul className="footer-links">
-          <li className="footer-link"><a href="#">ホーム</a></li>
-          <li className="footer-link"><a href="#">法規検索</a></li>
-        </ul>
-      </div>
-      
-      <div className="footer-section">
-        <h3 className="footer-title">お問い合わせ</h3>
-        <ul className="footer-links">
-          <li className="footer-link"><a href="#">お問い合わせフォーム</a></li>
-          <li className="footer-link"><a href="#">サポート</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div className="copyright">
-      &copy; 2025 ナカノフドー株式会社 All Rights Reserved.
-    </div>
-  </div>
-</footer>
+      {/* フッター - 構文エラーを修正 */}
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h3 className="footer-title">ナカノフドー 建築法規アドバイザー</h3>
+              <p>中野不動産が提供する、建築に関する法規制の疑問を解決するAIアシスタント。必要な情報を素早く見つけることができます。</p>
+            </div>
             
             <div className="footer-section">
               <h3 className="footer-title">リンク</h3>
@@ -268,7 +246,6 @@ export default function Home() {
                 <li className="footer-link"><a href="#">ホーム</a></li>
                 <li className="footer-link"><a href="#">法規検索</a></li>
                 <li className="footer-link"><a href="#">利用規約</a></li>
-                <li className="footer-link"><a href="#">プライバシーポリシー</a></li>
               </ul>
             </div>
             
@@ -277,13 +254,12 @@ export default function Home() {
               <ul className="footer-links">
                 <li className="footer-link"><a href="#">お問い合わせフォーム</a></li>
                 <li className="footer-link"><a href="#">よくある質問</a></li>
-                <li className="footer-link"><a href="#">サポート</a></li>
               </ul>
             </div>
           </div>
           
           <div className="copyright">
-            &copy; 2025 建築法規アドバイザー All Rights Reserved.
+            &copy; 2025 ナカノフドー株式会社 All Rights Reserved.
           </div>
         </div>
       </footer>
