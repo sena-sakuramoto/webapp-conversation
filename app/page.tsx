@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
-import '../styles/custom-styles.css'; // このファイルはすぐ後で作成します
+import './styles/custom-styles.css'; // このファイルはすぐ後で作成します
 
 export default function Home() {
   // スクリプト部分を実行するためのuseEffect
