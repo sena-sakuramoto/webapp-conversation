@@ -297,3 +297,44 @@ body {
     max-width: 100%;
   }
 }
+/* メインコンテンツのスタイル */
+.main-content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 質問フォームのスタイル */
+.question-form {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+/* テキストエリアのスタイル */
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-family: inherit;
+}
+
+/* ボタンのスタイル */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
