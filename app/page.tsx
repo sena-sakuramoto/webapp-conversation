@@ -4,26 +4,51 @@ import { useState } from 'react';
 import '../styles/custom-styles.css';
 
 export default function Home() {
-  // 国と言語の選択状態を管理
+  // 状態変数
   const [selectedCountry, setSelectedCountry] = useState('日本');
   const [selectedLanguage, setSelectedLanguage] = useState('日本語');
   const [question, setQuestion] = useState('');
   const [showAnswer, setShowAnswer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [answer, setAnswer] = useState('');
   
   // 質問処理
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (question.trim() === '') return;
     
     setIsLoading(true);
     
-    // 実際のAPIリクエストに国と言語の情報を含める
-    console.log(`国: ${selectedCountry}, 言語: ${selectedLanguage}, 質問: ${question}`);
-    
-    setTimeout(() => {
+    try {
+      // 自分のサーバーのAPIルートにリクエスト
+      const response = await fetch('/api/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          country: selectedCountry,
+          language: selectedLanguage,
+          question: question
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('回答の取得に失敗しました');
+      }
+      
+      // レスポンスを取得
+      const data = await response.json();
+      
+      // 回答を表示（Difyのレスポンス形式に合わせる）
+      setAnswer(data.answer);
       setShowAnswer(true);
+      
+    } catch (error) {
+      console.error('エラー:', error);
+      alert('すみません、エラーが発生しました。もう一度お試しください。');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
   
   return (
@@ -151,15 +176,8 @@ export default function Home() {
               {/* 回答ボックス */}
               {showAnswer && (
                 <div className="answer-box">
-                  <h3 className="answer-title">建築基準法における耐火建築物について</h3>
-                  <p>建築基準法第2条第9号の2によると、<span className="highlight">耐火建築物</span>とは、主要構造部が耐火構造であるか、または準耐火構造とし、かつ外壁の開口部で延焼のおそれのある部分に防火設備を有する建築物のことを指します。</p>
-                  <p>耐火建築物は火災時の安全性を確保するために重要な規定であり、特に以下の場合に必要となります：</p>
-                  <ul>
-                    <li>3階建て以上のホテルや旅館</li>
-                    <li>地下街の建築物</li>
-                    <li>一定規模以上の商業施設</li>
-                  </ul>
-                  <p>詳細については、建築基準法施行令第107条から第110条もご参照ください。</p>
+                  <h3 className="answer-title">回答</h3>
+                  <div dangerouslySetInnerHTML={{ __html: answer }}></div>
                 </div>
               )}
             </div>
