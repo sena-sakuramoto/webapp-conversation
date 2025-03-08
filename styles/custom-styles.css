@@ -527,3 +527,84 @@ textarea:focus {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+/* 以下のスタイルをcustom-styles.cssの適切な位置に追加 */
+
+/* 選択ボックス用スタイル */
+.select-container {
+  margin-bottom: 20px;
+}
+
+.select-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--fashion-1);
+  font-size: 16px;
+}
+
+.styled-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px dashed var(--fashion-3);
+  border-radius: var(--radius);
+  background-color: white;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size: 16px;
+  color: var(--text-main);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23F25C05' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.styled-select:focus {
+  outline: none;
+  border-color: var(--fashion-4);
+  box-shadow: 0 0 0 3px rgba(242, 91, 4, 0.2);
+}
+
+/* フォントサイズのバランス調整 */
+.title {
+  font-size: 42px; /* 少し小さく */
+}
+
+.subtitle {
+  font-size: 17px;
+  max-width: 700px; /* 少し広く */
+}
+
+.card-title {
+  font-size: 22px; /* 少し小さく */
+}
+
+.form-title {
+  font-size: 26px; /* 少し小さく */
+}
+
+/* 余白とバランスの調整 */
+.card {
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.feature-item {
+  margin-bottom: 18px;
+}
+
+.feature-icon {
+  width: 45px;
+  height: 45px;
+}
+
+/* 統一感のための調整 */
+.answer-box {
+  border: 2px solid var(--fashion-3);
+  margin-top: 30px;
+}
+
+.footer {
+  margin-top: 40px;
+}
