@@ -1,25 +1,33 @@
-import { getLocaleOnServer } from '@/i18n/server'
+import '../styles/custom-styles.css';
 
-import './styles/globals.css'
-import './styles/markdown.scss'
-
-const LocaleLayout = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
-  const locale = getLocaleOnServer()
+export default function RootLayout({ children }) {
   return (
-    <html lang={locale ?? 'en'} className="h-full">
-      <body className="h-full">
-        <div className="overflow-x-auto">
-          <div className="w-screen h-screen min-w-[300px]">
-            {children}
+    <html lang="ja">
+      <body>
+        <div className="layout">
+          {/* サイドバー */}
+          <div className="sidebar">
+            <div className="logo">建築法規</div>
+            <div className="subtitle">アドバイザー</div>
+            <nav>
+              <ul>
+                <li className="active">
+                  <a href="/">ホーム</a>
+                </li>
+                <li>
+                  <a href="/about">法規検索</a>
+                </li>
+                <li>
+                  <a href="/contact">お問い合わせ</a>
+                </li>
+              </ul>
+            </nav>
           </div>
+          
+          {/* メインコンテンツ */}
+          <main>{children}</main>
         </div>
       </body>
     </html>
-  )
+  );
 }
-
-export default LocaleLayout
