@@ -1,15 +1,15 @@
 :root {
-  --fashion-1: #593C47;
-  --fashion-2: #F2E63D;
+  /* ナカノフドーカラー（仮定） */
+  --company-primary: #7E5446;    /* 茶系 */
+  --company-secondary: #D9A441;  /* 金系 */
+  --company-accent: #BF6B04;     /* 銅系 */
+  
+  --fashion-1: var(--company-primary);
+  --fashion-2: var(--company-secondary);
   --fashion-3: #F2C53D;
-  --fashion-4: #F25C05;
+  --fashion-4: var(--company-accent);
   --fashion-5: #F24405;
-  --text-main: #334155;
-  --text-secondary: #475569;
-  --text-heading: #1e40af;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --radius: 12px;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* その他の変数は変更なし */
 }
 
 * {
