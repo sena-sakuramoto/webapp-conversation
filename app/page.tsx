@@ -1,15 +1,5 @@
-import type { FC } from 'react'
-import React from 'react'
+import BuildingCodeAdvisor from '@/components/BuildingCodeAdvisor';
 
-import type { IMainProps } from '@/app/components'
-import Main from '@/app/components'
-
-const App: FC<IMainProps> = ({
-  params,
-}: any) => {
-  return (
-    <Main params={params} />
-  )
+export default function Home() {
+  return <BuildingCodeAdvisor />;
 }
-
-export default React.memo(App)
