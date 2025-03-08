@@ -230,13 +230,13 @@ export default function Home() {
         </div>
       </main>
       
-  {/* フッター */}
+ {/* フッター */}
 <footer className="footer">
   <div className="container">
     <div className="footer-content">
       <div className="footer-section">
-        <h3 className="footer-title">ナカノフドー建設 国際建築法規アドバイザー</h3>
-        <p>ナカノフドー建設が提供する、建築に関する様々な国の建築法規制の疑問を解決するAIアシスタント。必要な情報を素早く見つけることができます。</p>
+        <h3 className="footer-title">ナカノフドー 建築法規アドバイザー</h3>
+        <p>中野不動産が提供する、建築に関する法規制の疑問を解決するAIアシスタント。</p>
       </div>
       
       <div className="footer-section">
@@ -244,7 +244,6 @@ export default function Home() {
         <ul className="footer-links">
           <li className="footer-link"><a href="#">ホーム</a></li>
           <li className="footer-link"><a href="#">法規検索</a></li>
-          <li className="footer-link"><a href="#">利用規約</a></li>
         </ul>
       </div>
       
@@ -252,7 +251,7 @@ export default function Home() {
         <h3 className="footer-title">お問い合わせ</h3>
         <ul className="footer-links">
           <li className="footer-link"><a href="#">お問い合わせフォーム</a></li>
-          <li className="footer-link"><a href="#">よくある質問</a></li>
+          <li className="footer-link"><a href="#">サポート</a></li>
         </ul>
       </div>
     </div>
