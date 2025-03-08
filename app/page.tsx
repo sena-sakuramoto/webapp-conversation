@@ -53,28 +53,28 @@ export default function Home() {
   
   return (
     <>
-      {/* ナビゲーション */}
-      <nav className="nav">
-        <div className="container nav-inner">
-          <a href="#" className="logo">
-            <i className="fas fa-building"></i>
-            建築法規アドバイザー
-          </a>
-          <div className="nav-links">
-            <a href="#" className="nav-link">ホーム</a>
-            <a href="#" className="nav-link">法規検索</a>
-            <a href="#" className="nav-link">お問い合わせ</a>
-          </div>
-        </div>
-      </nav>
-      
-      {/* ヘッダー */}
-      <header className="header">
-        <div className="container">
-          <h1 className="title animate-float">建築法規アドバイザー</h1>
-          <p className="subtitle">建築に関する法規や規制について、質問に答えます。専門知識を持つAIが24時間対応いたします。</p>
-        </div>
-      </header>
+     {/* ナビゲーション */}
+<nav className="nav">
+  <div className="container nav-inner">
+    <a href="#" className="logo">
+      <i className="fas fa-building"></i>
+      ナカノフドー 建築法規アドバイザー
+    </a>
+    <div className="nav-links">
+      <a href="#" className="nav-link">ホーム</a>
+      <a href="#" className="nav-link">法規検索</a>
+      <a href="#" className="nav-link">お問い合わせ</a>
+    </div>
+  </div>
+</nav>
+
+{/* ヘッダー */}
+<header className="header">
+  <div className="container">
+    <h1 className="title animate-float">ナカノフドー<br/>建築法規アドバイザー</h1>
+    <p className="subtitle">中野不動産ならではの建築に関する法規や規制についての質問にお答えします。専門知識を持つAIが24時間対応いたします。</p>
+  </div>
+</header>
       
       {/* メインコンテンツ */}
       <main className="container">
@@ -124,22 +124,19 @@ export default function Home() {
             <div className="card">
               <h2 className="form-title">ご質問はこちら</h2>
               <div className="question-form">
-                {/* 追加：国選択 */}
-                <div className="select-container">
-                  <label htmlFor="country-select">どの国の法規について調べますか？</label>
-                  <select 
-                    id="country-select" 
-                    className="styled-select"
-                    value={selectedCountry}
-                    onChange={(e) => setSelectedCountry(e.target.value)}
-                  >
-                    <option value="日本">日本</option>
-                    <option value="アメリカ">アメリカ</option>
-                    <option value="イギリス">イギリス</option>
-                    <option value="カナダ">カナダ</option>
-                    <option value="オーストラリア">オーストラリア</option>
-                  </select>
-                </div>
+               {/* 国選択 - 日本とシンガポールのみ */}
+<div className="select-container">
+  <label htmlFor="country-select">どの国の法規について調べますか？</label>
+  <select 
+    id="country-select" 
+    className="styled-select"
+    value={selectedCountry}
+    onChange={(e) => setSelectedCountry(e.target.value)}
+  >
+    <option value="日本">日本</option>
+    <option value="シンガポール">シンガポール</option>
+  </select>
+</div>
                 
                 {/* 追加：言語選択 */}
                 <div className="select-container">
@@ -233,14 +230,14 @@ export default function Home() {
         </div>
       </main>
       
-      {/* フッター */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3 className="footer-title">建築法規アドバイザー</h3>
-              <p>建築に関する法規制の疑問を解決するAIアシスタント。必要な情報を素早く見つけることができます。</p>
-            </div>
+     <div className="footer-section">
+  <h3 className="footer-title">ナカノフドー 建築法規アドバイザー</h3>
+  <p>中野不動産が提供する、建築に関する法規制の疑問を解決するAIアシスタント。必要な情報を素早く見つけることができます。</p>
+</div>
+
+<div className="copyright">
+  &copy; 2025 ナカノフドー株式会社 All Rights Reserved.
+</div>
             
             <div className="footer-section">
               <h3 className="footer-title">リンク</h3>
