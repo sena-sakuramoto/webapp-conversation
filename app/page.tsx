@@ -4,27 +4,25 @@ import { useState } from 'react';
 import '../styles/custom-styles.css';
 
 export default function Home() {
+  // 国と言語の選択状態を管理
+  const [selectedCountry, setSelectedCountry] = useState('日本');
+  const [selectedLanguage, setSelectedLanguage] = useState('日本語');
   const [question, setQuestion] = useState('');
   const [showAnswer, setShowAnswer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
+  // 質問処理
   const handleSubmit = () => {
     if (question.trim() === '') return;
     
     setIsLoading(true);
     
-    // APIコール（シミュレーション）
+    // 実際のAPIリクエストに国と言語の情報を含める
+    console.log(`国: ${selectedCountry}, 言語: ${selectedLanguage}, 質問: ${question}`);
+    
     setTimeout(() => {
       setShowAnswer(true);
       setIsLoading(false);
-      
-      // 滑らかにスクロール
-      setTimeout(() => {
-        const answerBox = document.querySelector('.answer-box');
-        if (answerBox) {
-          answerBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
     }, 1000);
   };
   
@@ -101,6 +99,40 @@ export default function Home() {
             <div className="card">
               <h2 className="form-title">ご質問はこちら</h2>
               <div className="question-form">
+                {/* 追加：国選択 */}
+                <div className="select-container">
+                  <label htmlFor="country-select">どの国の法規について調べますか？</label>
+                  <select 
+                    id="country-select" 
+                    className="styled-select"
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                  >
+                    <option value="日本">日本</option>
+                    <option value="アメリカ">アメリカ</option>
+                    <option value="イギリス">イギリス</option>
+                    <option value="カナダ">カナダ</option>
+                    <option value="オーストラリア">オーストラリア</option>
+                  </select>
+                </div>
+                
+                {/* 追加：言語選択 */}
+                <div className="select-container">
+                  <label htmlFor="language-select">どの言語で回答を受け取りますか？</label>
+                  <select 
+                    id="language-select" 
+                    className="styled-select"
+                    value={selectedLanguage}
+                    onChange={(e) => setSelectedLanguage(e.target.value)}
+                  >
+                    <option value="日本語">日本語</option>
+                    <option value="英語">英語</option>
+                    <option value="中国語">中国語</option>
+                    <option value="韓国語">韓国語</option>
+                    <option value="スペイン語">スペイン語</option>
+                  </select>
+                </div>
+                
                 <textarea 
                   placeholder="建築法規に関する質問を入力してください..." 
                   value={question}
@@ -114,15 +146,6 @@ export default function Home() {
                 >
                   <i className="fas fa-paper-plane"></i> {isLoading ? '処理中...' : '質問する'}
                 </button>
-                
-                {/* 装飾要素 */}
-                <i className="fas fa-pencil-alt deco-element deco-1"></i>
-                <i className="fas fa-ruler-combined deco-element deco-2"></i>
-                
-                {/* SVG矢印 */}
-                <svg className="handdrawn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
-                  <path d="M0,15 C20,5 40,25 55,15 L50,10 M55,15 L50,20" fill="none" stroke="#F25C05" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
               </div>
               
               {/* 回答ボックス */}
@@ -187,11 +210,6 @@ export default function Home() {
                 <li><a href="#" style={{ color: "var(--fashion-4)" }}>各自治体の建築条例一覧</a></li>
                 <li><a href="#" style={{ color: "var(--fashion-4)" }}>用途地域別建築制限まとめ</a></li>
               </ul>
-              
-              {/* SVG円 */}
-              <svg className="handdrawn-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="25" fill="none" stroke="#F2C53D" strokeWidth="3" strokeDasharray="5 3"/>
-              </svg>
             </div>
           </div>
         </div>
