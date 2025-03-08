@@ -2,8 +2,8 @@ import './globals.css';
 import '../styles/custom-styles.css';
 
 export const metadata = {
-  title: '建築法規アドバイザー',
-  description: '建築に関する法規や規制について、質問に答えます。',
+  title: 'ナカノフドー建設 国際建築法規アドバイザー',
+  description: 'ナカノフドー建設が提供する国際建築法規に関する質問応答サービス',
 };
 
 export default function RootLayout({ children }) {
